@@ -24,6 +24,10 @@ default: &default
 development:
   <<: *default
   database: user_api_backend_development
+  host: localhost
+  port: 5432
+  user: test
+  password: test
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,6 +62,10 @@ development:
 test:
   <<: *default
   database: user_api_backend_test
+  host: localhost
+  port: 5432
+  user: test
+  password: test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,6 +89,7 @@ test:
 #
 production:
   <<: *default
-  database: user_api_backend_production
-  username: user_api_backend
-  password: <%= ENV['USER_API_BACKEND_DATABASE_PASSWORD'] %>
+  url: <%= ENV['MY_APP_DATABASE_URL'] %>
+  #database: user_api_backend_production
+  #username: user_api_backend
+  #password: <%= ENV['USER_API_BACKEND_DATABASE_PASSWORD'] %>
